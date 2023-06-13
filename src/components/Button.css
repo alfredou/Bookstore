@@ -1,0 +1,44 @@
+:root {
+  --primary: #fff;
+}
+
+.btn--blue {
+  background-color: #5a5af5;
+  margin: 0 auto;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn--blue--medium {
+  background-color: #5959e9;
+  color: #222;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn--red {
+  background-color: #f73838;
+  padding: 8px 18px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+}
+
+.btn--small {
+  padding: 5px 12px;
+}
+
+.btn--medium {
+  padding: 12px 25px;
+}
+
+.btn--large {
+  padding: 12px 80px;
+}

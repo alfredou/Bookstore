@@ -1,0 +1,104 @@
+.cartmenu {
+    background-color: #fff;
+    position: absolute;
+    width: 60%;
+    top: -500%;
+    right: 0%;
+    height: 100vh;
+    z-index: 100;
+    transition: all 0.3s ease-out;
+}
+
+.cartmenu.active {
+    transition: all 0.3s ease-out;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+    overflow-y: scroll;
+}
+
+.cartmenu__bg {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-out;
+}
+
+.cartmenu__close {
+    font-size: 1.5rem;
+}
+
+.cartmenu__items {
+    font-weight: bold;
+}
+
+.cartmenu__top {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px;
+}
+
+.cartmenu__elements {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.cartmenu__element {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cartmenu__subtotal {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .cartmenu {
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: -500%;
+        right: 0%;
+        z-index: 100;
+        transition: all 0.3s ease-out;
+    }
+
+    .cartmenu.active {
+        transition: all 0.3s ease-out;
+        position: fixed;
+        top: 0%;
+        z-index: 100;
+        overflow-y: scroll;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .cartmenu {
+        background-color: #fff;
+        position: absolute;
+        width: 40%;
+        height: 100vh;
+        top: -500%;
+        right: 0%;
+        z-index: 100;
+    }
+
+    .cartmenu.active {
+        transition: all 0.3s ease-out;
+        position: fixed;
+        top: 0%;
+        z-index: 100;
+        overflow-y: scroll;
+    }
+
+}
