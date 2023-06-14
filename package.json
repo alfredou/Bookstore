@@ -1,7 +1,7 @@
 {
   "name": "bookstore",
   "private": true,
-  "homepage": "https://alfredou.github.io/bookstore",
+  "homepage": "https://alfredou.github.io/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
