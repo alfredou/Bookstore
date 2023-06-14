@@ -33,7 +33,7 @@ export function StoreItem({ title, subtitle, authors, publisher, isbn13, year, p
                         <span className='cardDetails__price'>Price: {formatCurrency(Nprice)}</span>
                     </div>
                     <h5 className='cardDetails__details'>Details</h5>
-                    <div className='cardDetails__desc'>{desc}</div>
+                    <div className='cardDetails__desc'>{decodeURIComponent(desc)}</div>
                     <div className='cardDetails__btns'>
                         {quantity === 0 ? (
                             <Button buttonStyle="btn--blue" buttonSize="btn--large" onClick={() => increaseCartQuantity(id, image, title, price)}>+ Add to Cart</Button>
