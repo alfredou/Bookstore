@@ -44,7 +44,7 @@ function Register() {
                 return errors
             }}
             onSubmit={(credentials) => {
-                axios.post("http://localhost:3001/api/auth/register", credentials)
+                axios.post("https://bookstore-node-production.up.railway.app/api/auth/register", credentials)
                     .then(() => {
                         setRegistered(true)
                     })
@@ -92,7 +92,7 @@ function Register() {
                         )} />
                     </div>
                     <Button type="submit" buttonStyle="btn--blue--medium" buttonSize="btn--large">Register</Button>
-                    <NavLink className="register__create" to="/login">Login</NavLink>
+                    <NavLink className="register__create" to="/bookstore/login">Login</NavLink>
                 </Form>
             )}
         </Formik>

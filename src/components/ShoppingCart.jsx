@@ -29,7 +29,7 @@ export function ShoppingCart({ isOpen }) {
     const handlePay = () => {
         if (!user) {
             closeCart()
-            return navigate("/login")
+            return navigate("/bookstore/login")
         } else {
             const NcartItems = cartItems.map(item => {
                 return {
@@ -72,7 +72,7 @@ export function ShoppingCart({ isOpen }) {
                         </div>
                         {cartQuantity == 0 ? <Button buttonStyle="btn--blue" onClick={() => {
                             closeCart()
-                            navigate('/')
+                            navigate('/bookstore')
                         }}>add Books to cart</Button> :
                             <Button buttonStyle="btn--blue" onClick={handlePay}>{(user) ? `Pay with stripe` : `Login to Check out`}</Button>}
                     </div>

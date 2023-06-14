@@ -16,7 +16,7 @@ export function Navbar() {
     return (
         <header className="header">
             <div className="header__container">
-                <NavLink to="/" className='header__logo'>Bookstore</NavLink>
+                <NavLink to="/bookstore" className='header__logo'>Bookstore</NavLink>
                 <nav className='header__nav'>
                     <SearchInput />
                 </nav>
@@ -33,7 +33,7 @@ export function Navbar() {
                                 dispatch({ type: "LOGOUT" })
                             }}>Logout</Button>
                         </NavLink>)
-                        : <NavLink to="/login" className="header__icon">
+                        : <NavLink to="/bookstore/login" className="header__icon">
                             {<Button buttonStyle="btn--blue--medium" buttonSize="btn--small">Login /Register</Button>}
                         </NavLink>}
                     {cartQuantity > 0 && (<NavLink className="header__carticons" onClick={openCart}>

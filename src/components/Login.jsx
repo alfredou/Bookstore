@@ -35,10 +35,10 @@ function Login() {
             }}
             onSubmit={(credentials) => {
                 dispatch({ type: "LOGIN_START" })
-                axios.post("http://localhost:3001/api/auth/login", credentials)
+                axios.post("https://bookstore-node-production.up.railway.app/api/auth/login", credentials)
                     .then(res => {
                         dispatch({ type: "LOGIN_SUCESS", payload: res.data })
-                        navigate("/")
+                        navigate("/bookstore")
                     }).catch((e) => {
                         //console.log(e)
                         dispatch({ type: "LOGIN_FAILURE", payload: e })
@@ -76,7 +76,7 @@ function Login() {
                         )} />
                     </div>
                     <Button type="submit" buttonStyle="btn--blue--medium" buttonSize="btn--large">Login</Button>
-                    <NavLink className="login__create" to="/register">Create account</NavLink>
+                    <NavLink className="login__create" to="/bookstore/register">Create account</NavLink>
                 </Form>
             )}
 
