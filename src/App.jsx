@@ -21,12 +21,12 @@ function App() {
           <div className='container'>
             <Navbar />
             <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/books/:id' element={<Bookdetails />} />
-              <Route path='/success' element={<CheckoutSuccess />} />
-              <Route path='/users/:id' element={<PrivateRoute><Profile /></PrivateRoute>} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
+              <Route path='/bookstore' element={<Home />} />
+              <Route path='/bookstore/books/:id' element={<Bookdetails />} />
+              <Route path='/bookstore/success' element={<CheckoutSuccess />} />
+              <Route path='/bookstore/users/:id' element={<PrivateRoute><Profile /></PrivateRoute>} />
+              <Route path='/bookstore/login' element={<Login />} />
+              <Route path='/bookstore/register' element={<Register />} />
               {/*<Route path='/checkout/:id' element={<UserCart />} />*/}
             </Routes>
           </div>

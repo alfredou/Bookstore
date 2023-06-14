@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch'
 
 function Bookdetails() {
     const location = useLocation();
-    const id = location.pathname.split("/")[2]  //2
+    const id = location.pathname.split("/")[3]  //2
 
     const { data, loading, error } = useFetch(`https://api.itbook.store/1.0/books/${id}`)
 
