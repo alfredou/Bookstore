@@ -1,0 +1,31 @@
+.comments{
+    display: grid;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+}
+.comments__container{
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f4ff; /*me gusta como se ve en azure;*/
+    gap: 15px;
+    padding: 20px;
+    border-radius: 2%;
+}
+.comments__containerdesc{
+    background-color: #7f83ffc9; /*me gusta como se ve en aquamarine*/
+    border-radius: 2%;
+    padding: 25px;
+}
+.comments__noreview{
+    display: flex;
+    background-color: #7f83ffc9;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 768px){
+    .comments__containerdesc{
+        padding: 15px;
+    }
+}

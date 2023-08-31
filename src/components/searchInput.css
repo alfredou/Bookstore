@@ -1,0 +1,31 @@
+.home__containerinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 50px;
+}
+.home__inputclose{
+    font-size: 20px;
+    color: #fff;
+}
+.home__input {
+    max-width: 160px;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+}
+.home__input::placeholder {
+    padding: 10px;
+}
+
+.home__input:focus-within {
+    padding: 10px;
+}
+
+.home__loupe {
+    width: 27px;
+    height: 27px;
+    padding: 0;
+}

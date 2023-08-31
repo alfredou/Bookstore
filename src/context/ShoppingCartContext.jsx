@@ -65,12 +65,16 @@ export function ShoppingCartProvider({ children }) {
             return currItems.filter(item => item.id !== id)
         })
     }
+
+    function removeAllFromCart(){
+        setCartItems([])
+    }
     //cambiar logica de use fetch mañana añadir al home (crear estado nuevo)
     //ingresar la información de los details en el contexto de los fetchs (crear estado nuevo)
     //enlazar los datos del carrito con la información solicitada en la barra de busqueda cuando vamos por la parte de detalles
 
     return (
-        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartItems, cartQuantity, openCart, closeCart }}>
+        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, removeAllFromCart, cartItems, cartQuantity, openCart, closeCart }}>
             {children}
             {/** cuando se da click en el carrito del navbar actualiza el estado de isOPen a true y por tanto renderiza ese componente cuando esta en true el isOpen*/}
             <ShoppingCart isOpen={isOpen} />

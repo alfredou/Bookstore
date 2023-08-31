@@ -1,6 +1,6 @@
 .cardDetails {
     display: flex;
-    margin-top: 30px;
+    margin-top: 50px;
     gap: 10px;
 }
 
@@ -32,10 +32,10 @@
     width: 100%;
 }
 
-.cardDetails__rating {
+.cardDetails__rating, .cardDetails__Review {
     color: #ffd23e;
 }
-
+ 
 .cardDetails__subtitle {
     text-align: center;
     display: flex;

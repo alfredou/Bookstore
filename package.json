@@ -17,10 +17,14 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-keycloak/web": "^3.4.0",
     "axios": "^1.2.2",
+    "canvas-confetti": "^1.6.0",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.0.3",
     "formik": "^2.2.9",
+    "intersection-observer": "^0.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.4.3"
   },
   "devDependencies": {

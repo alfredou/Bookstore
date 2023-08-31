@@ -1,0 +1,37 @@
+.rate{
+    padding: 20px;
+    box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, .5);
+    height: max-content;
+}
+.rating{
+  display: grid;
+  gap: 10px;
+}
+input[type=radio]{
+    display: none;
+}
+.star{
+    cursor: pointer;
+}
+.rating__label, .comment__label{
+    font-weight: bold;
+}
+.comment__container{
+    display: grid;
+    width: 300px;
+    height: 180px;
+    gap: 10px;
+}
+.comment__button{
+    color: #fff; 
+    background-color: #5a5af5;
+    padding: 12px 25px;
+    border: none; 
+    border-radius: 2%;
+    cursor: pointer;
+    /*width: 200px;
+    margin: 0 auto;*/
+}
+.comment__textarea{
+    resize: none;
+}

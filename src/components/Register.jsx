@@ -2,18 +2,17 @@ import { Formik, Field, Form, ErrorMessage } from "formik"
 import { NavLink } from "react-router-dom"
 import Button from "./Button"
 import './register.css'
-import axios from "axios"
-import { useState } from "react"
+import { apiUrl } from "../services/api"
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom"
+
+const registerSuccess = () => toast.success('User registered successfully');
+const registerError = () => toast.error('An error has ocurred');
 
 function Register() {
-    const [registered, setRegistered] = useState(false)
-
-    if (registered) {
-        return (
-            <h4>Congratulations ✅! You've been successfully registered!</h4>
-        )
-    }
-    return (
+    const navigate = useNavigate()
+        
+      return (
         <Formik
             initialValues={{
                 username: '',
@@ -43,15 +42,23 @@ function Register() {
 
                 return errors
             }}
-            onSubmit={(credentials) => {
-                axios.post("https://bookstore-node-production.up.railway.app/api/auth/register", credentials)
+            onSubmit={(credentials, {resetForm}) => {
+                apiUrl.post('/auth/register', credentials)
                     .then(() => {
-                        setRegistered(true)
+                        registerSuccess()
+                        resetForm()
+                        setTimeout(()=> navigate('/login'), 1500)
+                    }).catch((e)=>{
+                        registerError()
                     })
             }}>
 
             {({ errors }) => (
                 <Form className="register">
+                    <Toaster
+                         position="bottom-right"
+                         reverseOrder={false}
+                     />
                     <div className="register__container">
                         <label htmlFor="username" className="register__text">Username</label>
                         <Field
@@ -92,7 +99,7 @@ function Register() {
                         )} />
                     </div>
                     <Button type="submit" buttonStyle="btn--blue--medium" buttonSize="btn--large">Register</Button>
-                    <NavLink className="register__create" to="/bookstore/login">Login</NavLink>
+                    <NavLink className="register__create" to="/login">Login</NavLink>
                 </Form>
             )}
         </Formik>

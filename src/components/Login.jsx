@@ -2,14 +2,25 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import './login.css'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom"
-import axios from 'axios'
+import { apiUrl } from "../services/api";
+import toast, { Toaster } from 'react-hot-toast';
+
+const loginSuccess = () => toast.success('User logged sucessfully');
+const loginError = () => toast.error('An error has ocurred');
+
 
 function Login() {
     const { user, loading, error, dispatch } = useContext(AuthContext)
     const navigate = useNavigate()
+   
+    useEffect(()=>{
+        toast.dismiss()
+        toast.remove()
+    }, [])   
+   
     return (
         <Formik
             initialValues={{
@@ -35,19 +46,27 @@ function Login() {
             }}
             onSubmit={(credentials) => {
                 dispatch({ type: "LOGIN_START" })
-                axios.post("https://bookstore-node-production.up.railway.app/api/auth/login", credentials)
-                    .then(res => {
+                apiUrl.post(`/auth/login`, credentials, {
+                    withCredentials: true // Habilitar el manejo de cookies en Axios
+                  }).then(res => {
+                       //console.log(res.data)
                         dispatch({ type: "LOGIN_SUCESS", payload: res.data })
-                        navigate("/bookstore")
+                        loginSuccess()
+                        setTimeout(()=> navigate("/"), 1000)
                     }).catch((e) => {
                         //console.log(e)
                         dispatch({ type: "LOGIN_FAILURE", payload: e })
+                        loginError()
                     })
             }}
         >
             {({ errors }) => (
 
                 <Form className="login">
+                      <Toaster
+                         position="bottom-right"
+                         reverseOrder={false}
+                      />
                     <div className="login__container">
                         <label htmlFor="username" className="login__Text">Username</label>
                         <Field
@@ -76,7 +95,7 @@ function Login() {
                         )} />
                     </div>
                     <Button type="submit" buttonStyle="btn--blue--medium" buttonSize="btn--large">Login</Button>
-                    <NavLink className="login__create" to="/bookstore/register">Create account</NavLink>
+                    <NavLink className="login__create" to="/register">Create account</NavLink>
                 </Form>
             )}
 

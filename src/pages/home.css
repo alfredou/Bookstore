@@ -6,7 +6,7 @@
         conic-gradient(#0000 30%, #474bff);
     -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
     animation: spinner-c7wet2 1s infinite linear;
-    margin: 0 auto;
+    margin: auto;
 }
 
 @keyframes spinner-c7wet2 {
@@ -19,13 +19,14 @@
 
 .title {
     text-align: center;
-    margin-top: 40px;
-    color: rgb(24, 24, 24);
+    margin: 40px 0;
+    color: rgba(24, 24, 24, .7);
 }
 
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(250px, max-content)); /*180px*/
+    justify-content: center;
     gap: 55px;
     margin: 12px;
 }
@@ -46,15 +47,25 @@
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 7px;
 }
-
+  
 .books__img {
     width: 100%;
-    height: 100%;
+    /*height: 250; 250*/
+    aspect-ratio: 2.5 / 2.1;
     object-fit: cover;
     cursor: pointer;
+    animation: fadeInWithBlur 2s ease;
+    border-radius: 4px;
+}
+.booksload__img {
+   background-color: rgba(0, 0, 0, .2);
+   width: 100%;
+   aspect-ratio: 2.5 / 2.1;
+   animation: fadeimgload 2s infinite;
 }
 
 .books__texts {
+    margin: 10px;
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -62,4 +73,40 @@
     align-items: center;
     text-align: center;
     font-weight: bold;
+}
+.books__texts span{
+    width: 170px;
+}
+
+@keyframes fadeimgload {
+    0% {
+        background-color: rgba(0, 0, 0, .1);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, .5);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, .2);
+    }
+}
+
+@keyframes fadeInWithBlur {
+    from {
+      filter: blur(5px);
+      opacity: 0;
+    }
+  
+    to {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+@media only screen and (min-width: 1200px){
+    .books {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(250px, 300px)); /*180px*/
+        justify-content: center;
+        gap: 55px;
+        margin: 12px;
+    }
 }

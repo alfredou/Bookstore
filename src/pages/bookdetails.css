@@ -1,0 +1,15 @@
+.ratingform__container{
+    margin-top: 140px;
+    margin-bottom: 50px;
+    padding: 20px;
+    display: flex;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px){
+    .ratingform__container{
+        flex-direction: column;
+        align-items: center;
+    }
+}

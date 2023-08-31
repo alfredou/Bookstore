@@ -5,13 +5,20 @@ const useFetch = (url) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [hasMore, setHasMore] = useState(false)
+    const [text, setText] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
             try {
                 const res = await axios.get(url)
+                if(res.data.books?.length === 0){
+                    setText('No more data available')
+                    return
+                } 
                 setData(res.data)
+                setHasMore(res.data.books.length > 0)
             } catch (err) {
                 setError(err)
             }
@@ -37,6 +44,6 @@ const useFetch = (url) => {
         //actualiza el estado loading a false
         setLoading(false)
     }
-    return { data, loading, error, reFetch }
+    return { data, loading, error, hasMore, reFetch, text }
 }
 export default useFetch
