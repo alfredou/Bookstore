@@ -1,6 +1,6 @@
+import "./userinfo.css"
 import { Formik, Field, Form, ErrorMessage } from "formik"
 import Button from "../components/Button"
-import "./userinfo.css"
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import toast, { Toaster } from 'react-hot-toast';
@@ -78,39 +78,39 @@ import { apiUrl } from "../services/api"
                                  <div className="error">{errors.username}</div>
                              )} />
                          </div>
-                         <div className="register__container">
-                             <label htmlFor="Email" className="register__text">Email</label>
+                         <div className="updateuser__container">
+                             <label htmlFor="Email" className="updateuser__text">Email</label>
                              <Field
                                  type="text"
                                  id="email"
                                  name="email"
-                                 className="register__input"
+                                 className="updateuser__input"
                                  placeholder="email"
                              />
                              <ErrorMessage name="email" component={() => (
                                  <div className="error">{errors.email}</div>
                              )} />
                          </div>
-                         <div className="register__container">
-                             <label htmlFor="password" className="register__text">Password</label>
+                         <div className="updateuser__container">
+                             <label htmlFor="password" className="updateuser__text">Password</label>
                              <Field
                                  type="password"
                                  id="password"
                                  name="password"
-                                 className="register__input"
+                                 className="updateuser__input"
                                  placeholder="Password"
                              />
                              <ErrorMessage name="password" component={() => (
                                  <div className="error">{errors.password}</div>
                              )} />
                          </div>
-                         <div className="register__container">
-                             <label htmlFor="repeatPassword" className="register__text">Repeat Password</label>
+                         <div className="updateuser__container">
+                             <label htmlFor="repeatPassword" className="updateuser__text">Repeat Password</label>
                              <Field
                                  type="password"
                                  id="repeatPassword"
                                  name="repeatPassword"
-                                 className="register__input"
+                                 className="updateuser__input"
                                  placeholder="Password"
                              />
                              <ErrorMessage name="repeatPassword" component={() => (

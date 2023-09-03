@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './shoppingcart.css'
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import axios from "axios";
+import { apiUrl } from "../services/api";
 
 export function ShoppingCart({ isOpen }) {
     const { closeCart, cartItems, cartQuantity } = useShoppingCart()
@@ -37,7 +37,7 @@ export function ShoppingCart({ isOpen }) {
                     price: Number(NewPrice(null, item.price))
                 }
             })
-            axios.post(`http://localhost:3001/api/stripe/create-checkout-session`, {
+            apiUrl.post(`/stripe/create-checkout-session`, {
                 NcartItems,
                 userId: user._id
             }).then((res) => {
