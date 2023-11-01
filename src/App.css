@@ -1,10 +1,26 @@
+:root{
+    --dark-color: #333;
+    --white-color: #fff;
+    --darklight-color: #454547;
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    width: 100%;
-    display: flex;
+
+/*darkmode*/
+body.dark-mode {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+body.dark-mode .container .title{
+    color: var(--white-color);
+}
+body.dark-mode .container .books__texts *{
+    color: var(--white-color);
+}
+body.dark-mode .cartmenu {
+    background-color: var(--dark-color) !important;
 }

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
-import UserCard from "../components/UserCard"     
+import UserCard from "../components/UserCard/UserCard"     
 
 export function Profile() {
         const { user } = useContext(AuthContext)

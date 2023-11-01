@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
-import { ShoppingCart } from '../components/ShoppingCart'
+import { ShoppingCart } from '../components/ShoppingCart/ShoppingCart'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const ShoppingCartContext = createContext({})

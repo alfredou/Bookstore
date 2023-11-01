@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useBookContext } from "../context/DataBooksContext";
 import './home.css'
-import {Image} from "../components/Image"
-import PaginatedList from "../components/PaginatedList";
-import SearchInput from "../components/SearchInput";
+import {Image} from "../components/Image/Image"
+import PaginatedList from "../components/Pagination/PaginatedList";
+import SearchInput from "../components/SearchInput/SearchInput";
+import usePaginatedData from "../components/Pagination/usePaginatedData";
+import BookSkeleton from "../components/Skeletons/BookSkeleton";
 
 export function Home() {
     //const [page, setPage] = useState(1) 
-    const [name, setName] = useState("")
-    const { bookList, newbooks, setNewBooks, setBookList} = useBookContext();
-    const [loading, setLoading] = useState(false)
-    /*const urlList = (page && name) ? `https://api.itbook.store/1.0/search/${name}/${page}` : 'https://api.itbook.store/1.0/new' 
+    const {loading, bookList, newbooks, data, updatePage, name, updateName} = usePaginatedData()
+   /*const urlList = (page && name) ? `https://api.itbook.store/1.0/search/${name}/${page}` : 'https://api.itbook.store/1.0/new' 
     const { data, loading, error, hasMore, text } = useFetch(urlList)
     const { books } = data*/
     {/*infine scrolling cuando llega al final hace el fetching y carga los datos que siguen*/}
@@ -41,15 +41,16 @@ useEffect(() => {
              setBookList(prevBookList => prevBookList.concat(books));
             } 
         }, [page])
-  */     
-        return (
+        */     
+       return (
             <>
-            <SearchInput setName={setName}/>
-            <h1 className="title">{bookList ? `Results from search` : `new releases books`}</h1>
+            <SearchInput updateName={updateName}/>
+            <h1 className="title">{newbooks ? `new releases books` : `Results from search`}</h1>
+        <div className="books__container">
             <div className="books">
                 {(bookList?.length > 0) ? bookList?.map((book, i) => {
                       //if(bookList?.length === i + 1){
-                          return <Link key={i} to={`books/${book?.isbn13}`} /*ref={lastBookElementRef}*/ className="books__link">
+                          return <Link data-testid={`booklist-${i}`} key={i} to={`books/${book?.isbn13}`} /*ref={lastBookElementRef}*/ className="books__link">
                             {/*<img className="books__img" src={book?.image} alt="" />*/}
                             <Image key={i} src={book?.image} imageClass={`books__img`} alt={book.title}/>
                             <div className="books__texts">
@@ -66,12 +67,12 @@ useEffect(() => {
                                 <span>{book?.title}</span>
                                 <span>{book?.isbn13}</span>
                                 <span>{book?.price}</span>
-                            </div>
+                                </div>
                         </Link>
                         }*/}
-                    }) : loading ? <div className="spinner"></div> /** este loading al inicio era el que afectaba el infinite scrolling devolviendo la barra de scroll hacia arriba lo quite de arriba si no tiene utilidad lo quito de abajo, el infinite scrolling funciona poniendo el loading abajo de la iteracion de los datos*/
+                    }) : loading ? Array.from({length: 10}).map((item)=><div key={item}><BookSkeleton/></div>) //<div className="spinner"></div> /** este loading al inicio era el que afectaba el infinite scrolling devolviendo la barra de scroll hacia arriba lo quite de arriba si no tiene utilidad lo quito de abajo, el infinite scrolling funciona poniendo el loading abajo de la iteracion de los datos*/                 
                     : newbooks?.map((book, i) => (
-                        <Link key={i} to={`books/${book.isbn13}`} className="books__link" >
+                        <Link data-testid={`newbooks-${i}`} key={i} to={`books/${book.isbn13}`} className="books__link">
                                 {<img className="books__img" src={book.image} alt={book.title} />}
                                 {!book.image && <div className="booksload__img"></div>}
                                 {/*<Image key={i} src={book.image} imageClass={`books__img`}/>*/}
@@ -83,8 +84,9 @@ useEffect(() => {
                             </Link>
                         ))}       
             </div>
+        </div>
             <div>
-                   <PaginatedList name={name} bookList={bookList} setNewBooks={setNewBooks} setBookList={setBookList} setLoading={setLoading}/>               
+                   <PaginatedList data={data} updatePage={updatePage} name={name}/>               
             </div>
         </>
     )

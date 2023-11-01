@@ -1,20 +1,21 @@
+import "./App.css"
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 //import Bookdetails from './pages/BookDetails'
 //import { Profile } from './pages/Profile'
 //import { UserCart } from './pages/UserCart'
-import { Navbar } from './components/Navbar'
+import { Navbar } from './components/Navbar/Navbar'
 import { ShoppingCartProvider } from './context/ShoppingCartContext'
 import { BookContextProvider } from './context/DataBooksContext'
-const Login = lazy(()=> import('./components/Login'))
-const Register = lazy(()=> import('./components/Register'))
+const Login = lazy(()=> import('./components/Login/Login'))
+const Register = lazy(()=> import('./components/Register/Register'))
 const Bookdetails = lazy(()=> import('./pages/BookDetails'))
 const Orders = lazy(()=> import('./pages/Orders'))
-const ErrorRoute = lazy(()=> import('./components/ErrorRoute'))
-const CheckoutSuccess = lazy(()=> import('./components/CheckoutSucess'))
+const ErrorRoute = lazy(()=> import('./components/ErrorRoute/ErrorRoute'))
+const CheckoutSuccess = lazy(()=> import('./components/CheckoutSuccess/CheckoutSucess'))
 const Profile = lazy(()=> import('./pages/Profile'))
-const ProtectedRoute = lazy(()=> import('./components/ProtectedRoute'))
+const ProtectedRoute = lazy(()=> import('./components/ProtectedRoute/ProtectedRoute'))
 //import Login from './components/Login'
 //import Register from './components/Register'
 import { AuthContextProvider } from './context/AuthContext'

@@ -1,5 +1,5 @@
 import React from 'react'
-import OrderDescription from '../components/OrderDescription'
+import OrderDescription from '../components/OrderDescription/OrderDescription'
 
 function Orders() {
   return (

@@ -1,6 +1,4 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
-import { useBookContext } from '../context/DataBooksContext'; 
 
 function usePagination(totalItems, itemsPerPage) {
    const [currentPage, setCurrentPage] = useState(1)
@@ -15,8 +13,8 @@ function usePagination(totalItems, itemsPerPage) {
    const getPageNumbers = ()=>{
             const pageNumbers = []
             const maxPageNumbersToShow = 7; // Máximo de números de página a mostrar
-            const startPage = Math.max(1, currentPage - Math.floor(maxPageNumbersToShow / 2));
-            const endPage = Math.min(startPage + maxPageNumbersToShow - 1, totalPages);
+            const startPage = Math.max(1, currentPage - Math.floor(maxPageNumbersToShow / 2));//4 //importante analizar
+            const endPage = Math.min(startPage + maxPageNumbersToShow - 1, totalPages);//10
 
             for(let i = startPage; i<= endPage; i++){
                   pageNumbers.push(i)

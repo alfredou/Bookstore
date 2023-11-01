@@ -1,0 +1,39 @@
+.updateuser__title {
+   text-align: center;
+   margin-bottom: 30px;
+}
+.update__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding: 25px;
+    height: 89vh;
+    background-color: rgb(194, 211, 243);
+    gap: 13px;
+}
+
+.updateuser__container {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.updateuser__text {
+    font-size: 1.1rem;
+}
+
+.updateuser__input {
+    padding: 12px 20px;
+}
+
+.error {
+    color: rgb(248, 71, 71);
+}
+
+/*darkmode*/
+body.dark-mode .update__user {
+    background-color: var(--darklight-color);
+}
+

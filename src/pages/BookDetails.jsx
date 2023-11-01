@@ -1,11 +1,11 @@
 import "./bookdetails.css"
-import { StoreItem } from '../components/StoreItem'
+import { StoreItem } from '../components/StoreItem/StoreItem'
 import { useLocation } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import { useBookContext } from '../context/DataBooksContext';
 import { useEffect } from 'react';
-import Rate from '../components/Rate';
-import Comments from "../components/Comments";
+import Rate from '../components/Rate/Rate';
+import Comments from "../components/Comments/Comments";
 import { apiBooksUrl } from "../services/api";
 
 function Bookdetails() {
