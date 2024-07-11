@@ -67,6 +67,7 @@ function Register() {
                             name="username"
                             className="register__input"
                             placeholder="Jhon Doe"
+                            autocomplete="username"
                         />
                         <ErrorMessage name="name" component={() => (
                             <div className="error">{errors.username}</div>
@@ -80,6 +81,7 @@ function Register() {
                             name="email"
                             className="register__input"
                             placeholder="Jhon Doe"
+                            autocomplete="email"
                         />
                         <ErrorMessage name="name" component={() => (
                             <div className="error">{errors.email}</div>
@@ -93,6 +95,7 @@ function Register() {
                             name="password"
                             className="register__input"
                             placeholder="Password"
+                            autocomplete="current-password"
                         />
                         <ErrorMessage name="name" component={() => (
                             <div className="error">{errors.password}</div>

@@ -40,6 +40,8 @@ export function ShoppingCart({ isOpen }) {
             apiUrl.post(`/stripe/create-checkout-session`, {
                 NcartItems,
                 userId: user._id
+            },{
+                withCredentials: true // Habilitar el manejo de cookies en Axios
             }).then((res) => {
                 if (res.data.url) {
                     //console.log(res.data.url)

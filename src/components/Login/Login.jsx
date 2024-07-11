@@ -74,7 +74,8 @@ function Login() {
                             id="username"
                             name="username"
                             className="login__input"
-                            placeholder="Jhon Doe" />
+                            placeholder="Jhon Doe" 
+                            autocomplete="username"/>
 
                         <ErrorMessage name="username" component={() => (
                             <div className="error">{errors.username}</div>
@@ -88,7 +89,9 @@ function Login() {
                             id="password"
                             name="password"
                             className="login__input"
-                            placeholder="Password" />
+                            placeholder="Password" 
+                            autocomplete="current-password"
+                            />
 
                         <ErrorMessage name="password" component={() => (
                             <div className="error">{errors.password}</div>

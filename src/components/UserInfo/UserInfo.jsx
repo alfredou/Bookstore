@@ -73,6 +73,7 @@ import { apiUrl } from "../../services/api"
                                  name="username"
                                  className="updateuser__input"
                                  placeholder="username"
+                                 autocomplete="username"
                              />
                              <ErrorMessage name="username" component={() => (
                                  <div className="error">{errors.username}</div>
@@ -86,6 +87,7 @@ import { apiUrl } from "../../services/api"
                                  name="email"
                                  className="updateuser__input"
                                  placeholder="email"
+                                 autocomplete="email"
                              />
                              <ErrorMessage name="email" component={() => (
                                  <div className="error">{errors.email}</div>
@@ -99,6 +101,7 @@ import { apiUrl } from "../../services/api"
                                  name="password"
                                  className="updateuser__input"
                                  placeholder="Password"
+                                 autocomplete="current-password"
                              />
                              <ErrorMessage name="password" component={() => (
                                  <div className="error">{errors.password}</div>
@@ -112,6 +115,7 @@ import { apiUrl } from "../../services/api"
                                  name="repeatPassword"
                                  className="updateuser__input"
                                  placeholder="Password"
+                                 autocomplete="current-password"
                              />
                              <ErrorMessage name="repeatPassword" component={() => (
                                  <div className="error">{errors.repeatPassword}</div>
